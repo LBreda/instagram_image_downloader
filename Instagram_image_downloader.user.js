@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram image downloader
 // @namespace    http://lbreda.com/
-// @version      1.0
+// @version      1.1
 // @description  Adds a download link for instagram images in the one-image pages
 // @author       Lorenzo Breda
 // @match        https://*.instagram.com/*
@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    if(document.querySelector('meta[property="og:image"]') && document.querySelector('meta[property="og:image"]').content){
+    if(document.querySelector('meta[property="og:image"]') && document.querySelector('meta[property="og:image"]').content && !document.querySelector('meta[property="og:video"]')){
         var a = document.createElement('a');
         var container = document.querySelector('._hmd6j._8oo9w');
         a.href = document.querySelector('meta[property="og:image"]').content;
